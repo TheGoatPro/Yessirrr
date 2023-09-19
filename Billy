@@ -1,0 +1,113 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("SB CUSTOM GOATS HUB SCRIPT", "Midnight")
+local Tab = Window:NewTab("SB OP")
+local Section = Tab:NewSection("SB OP")
+Section:NewButton("NO COOLDOWN", "LIKE OVERKILL BUT ANY GLOVE", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local tool = character:FindFirstChildOfClass("Tool") or player.Backpack:FindFirstChildOfClass("Tool")
+
+while character.Humanoid.Health ~= 0 do
+local localscript = tool:FindFirstChildOfClass("LocalScript")
+local localscriptclone = localscript:Clone()
+localscriptclone = localscript:Clone()
+localscriptclone:Clone()
+localscript:Destroy()
+localscriptclone.Parent = tool
+wait(0.1)
+end
+    print("Clicked")
+end)
+Section:NewButton("inf invincible", "need 666 slaps or more before click, equip any glove then click.", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+if character.isInArena.Value == false then
+fireclickdetector(game.Workspace.Lobby.Ghost.ClickDetector)
+game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+
+while character.Humanoid.Health ~= 0 do
+character.Head.Transparency = 0.5
+character.Torso.Transparency = 0.5
+character["Left Arm"].Transparency = 0.5
+character["Right Arm"].Transparency = 0.5
+character["Left Leg"].Transparency = 0.5
+character["Right Leg"].Transparency = 0.5
+wait(0.05)
+end
+end
+
+-- after this equip any glove and boom invisiblity :D
+    print("Clicked")
+end)
+Section:NewButton("invincibility", "god", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local teleport = game.Workspace.Lobby.Teleport1
+
+character.HumanoidRootPart.CFrame = teleport.CFrame
+wait(0.5)
+local tool = character:FindFirstChildOfClass("Tool")
+tool.Parent = game.ReplicatedStorage
+character.Humanoid.Health = 0
+wait(4)
+player = game.Players.LocalPlayer
+character = player.Character or player.CharacterAdded:Wait()
+tool.Parent = character
+character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
+print("Clicked")
+end)
+Section:NewButton("killerfish", "fish equipped and r to use", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local tool = character:FindFirstChild("fish") or player.Backpack:FindFirstChild("fish")
+
+local fish = game.Workspace.Lobby.fish
+local fishStand = game.Workspace.Lobby.GloveStands.fish
+local leaderstats = player:FindFirstChild("leaderstats")
+local gloveStat = leaderstats:FindFirstChild("Glove")
+
+local userInputService = game:GetService("UserInputService")
+local canUseAbility = true
+userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+if character.isInArena.Value == true then
+if gloveStat.Value == "fish" or gloveStat.Value == "Killerfish" then
+    if input.KeyCode == Enum.KeyCode.R and canUseAbility then
+            canUseAbility = false
+            game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+            wait(3.05)
+            canUseAbility = true
+        end
+    end
+    end
+end)
+
+while fish:FindFirstChild("Texture") do
+fish.Texture:Destroy()
+fish.Color = Color3.new(124, 124, 124)
+fish.Material = "DiamondPlate"
+fishStand.GloveDesc.DescOutline.DescFrame:FindFirstChild("Name").Text = "Killerfish"
+wait(0.05)
+end
+
+while true do
+if gloveStat.Value == "fish" or gloveStat.Value == "Killerfish" then
+gloveStat.Value = "Killerfish"
+end
+wait(0.05)
+end
+
+while tool.Glove:FindFirstChild("Texture") do
+tool.Glove.Texture:Destroy()
+wait(0.05)
+end
+
+tool.Glove.Color = Color3.new(124, 124, 124)
+tool.Glove.Material = "DiamondPlate"
+tool.Name = "Killerfish"
+print("Clicked")
+end)
+Section:NewButton("SBS HUB", "sbs hub", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/t9XmdEFT'))()
+print("Clicked")
+end)
